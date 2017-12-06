@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: iotnode-deployment
+  labels:
+    app: iotnode
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: iotnode
+  template:
+    metadata:
+      labels:
+        app: iotnode
+    spec:
+      containers:
+      - name: iotnode
+        image: sravangdocker/nodeiot:dev
+        imagePullPolicy: IfNotPresent
