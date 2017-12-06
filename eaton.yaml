@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: eaton-deployment
+  labels:
+    app: eaton
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: eaton
+  template:
+    metadata:
+      labels:
+        app: eaton
+    spec:
+      containers:
+      - name: eaton
+        image: sravangdocker/eaton:dev
+        imagePullPolicy: IfNotPresent
