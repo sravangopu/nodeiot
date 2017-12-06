@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: eatoniot-deployment
+  labels:
+    app: eatoniot
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: eatoniot
+  template:
+    metadata:
+      labels:
+        app: eatoniot
+    spec:
+      containers:
+      - name: eatoniot
+        image: sravangdocker/eatoniot:dev
+        imagePullPolicy: IfNotPresent
