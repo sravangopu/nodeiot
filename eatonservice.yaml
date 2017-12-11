@@ -12,14 +12,14 @@ spec:
   selector:
     app: eatonpoc
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
   name: eatonpoc-replica
   labels:
     app: eatonpoc-replica
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
