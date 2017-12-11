@@ -18,4 +18,3 @@ spec:
       - name: eaton
         image: sravangdocker/eaton:dev
         imagePullPolicy: IfNotPresent
-  dnsPolicy: Default
