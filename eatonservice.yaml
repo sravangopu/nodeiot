@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eatoniot-service
+  labels:
+    app: eatoniot-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 4000
+  type: NodePort
+  selector:
+    app: eatoniot
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: eatoniot-replica
+  labels:
+    app: eatoniot-replica
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: eatoniot
+    spec:
+      containers:
+      - name: eatoniot-container
+        image: sravangdocker/eatoniot:dev
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 4000
