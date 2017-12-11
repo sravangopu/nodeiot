@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: rceaton
+spec:
+  replicas: 1
+  selector:
+    app: eaton
+  template:
+    metadata:
+      name: eatonsample
+      labels:
+        app: eaton
+    spec:
+      containers:
+      - name: eaton
+        image: sravangdocker/eatoniot:dev
+        ports:
+        - containerPort: 9876
