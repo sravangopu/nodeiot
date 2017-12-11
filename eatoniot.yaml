@@ -18,4 +18,3 @@ spec:
       - name: eatoniot
         image: sravangdocker/eatoniot:dev
         imagePullPolicy: IfNotPresent
-  dnsPolicy: Default
